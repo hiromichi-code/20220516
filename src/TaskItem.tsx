@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import firebase from "firebase/app";
 import { db } from "./firebase";
 
 interface PROPS {
