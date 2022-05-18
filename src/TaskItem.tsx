@@ -9,11 +9,13 @@ interface PROPS {
 const TaskItem: React.FC<PROPS> = (props) => {
 	const [title, setTitle] = useState(props.title);
 
-	const editTask = () => {
+	const editTask = (e: any) => {
+		e.preventDefault();
 		db.collection("tasks").doc(props.id).set({ title: title }, { merge: true });
 	};
 
-	const deleteTask = () => {
+	const deleteTask = (e: any) => {
+		e.preventDefault();
 		db.collection("tasks").doc(props.id).delete();
 	};
 
@@ -33,12 +35,12 @@ const TaskItem: React.FC<PROPS> = (props) => {
 						/>
 						<button
 							className="ml-2 bg-red-300 text-white py-2 px-3 text-base"
-							onClick={editTask}>
+							onClick={(e: any) => editTask(e)}>
 							編集
 						</button>
 						<button
 							className="ml-2 bg-red-300 text-white py-2 px-3 text-base"
-							onClick={deleteTask}>
+							onClick={(e: any) => deleteTask(e)}>
 							完了
 						</button>
 					</div>

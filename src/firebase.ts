@@ -3,7 +3,7 @@ import "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
-const firebaseApp = firebase.initializeApp({
+firebase.initializeApp({
 	apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
 	authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
 	databaseURL: process.env.REACT_APP_FIREBASE_DATABASE,
@@ -13,5 +13,5 @@ const firebaseApp = firebase.initializeApp({
 	appId: process.env.REACT_APP_FIREBASE_APP_ID,
 });
 
-export const db = firebaseApp.firestore();
+export const db = firebase.firestore();
 export const auth = firebase.auth();
